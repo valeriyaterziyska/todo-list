@@ -1,6 +1,9 @@
 import Todo from "./Todo";
 
-export default function TodoList() {
+export default function TodoList({
+    todos,
+    toggleTodoStatus
+}) {
     return (
         <table className="table">
             <thead>
@@ -12,7 +15,7 @@ export default function TodoList() {
             </thead>
             <tbody>
 
-                <Todo />
+                {todos.map(todo => < Todo key={todo._id} {...todo} toggleTodoStatus={toggleTodoStatus}/>)}
 
             </tbody>
         </table>

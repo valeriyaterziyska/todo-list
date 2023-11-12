@@ -1,10 +1,15 @@
-export default function Todo() {
+export default function Todo({
+    _id,
+    text,
+    isCompleted,
+    toggleTodoStatus,
+}) {
     return (
-        <tr className="todo is-completed">
-            <td>Give dog a bath</td>
-            <td>Complete</td>
+        <tr className={`todo ${isCompleted ? 'is-completed' : ''}`.trim()}>
+            <td>{text}</td>
+            <td>{isCompleted ? 'Complate' : 'Not Complete'}</td>
             <td className="todo-action">
-                <button className="btn todo-btn">Change status</button>
+                <button className="btn todo-btn" onClick={() => toggleTodoStatus(_id)}>Change status</button>
             </td>
         </tr>
     );
